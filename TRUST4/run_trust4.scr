@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+#SBATCH --job-name=trust
+#SBATCH --output=slurm.out
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32G
+
+ref=IMGT+C.fa
+
+perl ./trust-smartseq.pl -1 read1.list -2 read2.list -t 8 -f bcrtcr.fa --ref $ref -o pickseq_smartseq
+
